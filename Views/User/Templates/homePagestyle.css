@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    background-image: url('./images/img_parallax.jpg');
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 1170px;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+img.logoWeb {
+    width: 120px;
+    background: transparent;
+    opacity: 0.2;
+    transition: opacity 0.35s;
+}
+
+
+nav.top-bar:hover {
+    background: #EDE3E9;
+}
+
+nav.top-bar:hover img.logoWeb {
+    opacity: 0.7;
+}
+
+nav.top-bar {
+    background: #FFEEDD;
+    transition: background 0.35s;
+
+}
+
+ul.top-bar__menu li a {
+    color: #9381FF;
+    transition: color 0.35s;
+}
+
+ul.top-bar__menu li a:hover {
+    color: #FF521B;
+}
+
+ul.top-bar__menu li {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+p.bannerHello {
+    margin: 0 30px;
+    color: #9F84BD;
+}
