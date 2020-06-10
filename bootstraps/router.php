@@ -4,7 +4,7 @@ class bootstraps_router
 {
     const PARAM_NAME = "r";
 
-    const HOME_PAGE = "Views/User/Templates/homePage";
+    const HOME_PAGE = "Views/User/Templates/HomePage/homePage";
     const INDEX_PAGE = "index";
 
     public static $sourcePath;

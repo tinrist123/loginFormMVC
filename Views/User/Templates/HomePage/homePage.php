@@ -9,7 +9,7 @@
 </head>
 <?php
 $router = new bootstraps_router();
-$linkLogin = $router->createUrl('Views/User/Templates/login');
+$linkLogin = $router->createUrl('Views/User/Templates/Login/login');
 ?>
 
 <body>
@@ -29,7 +29,12 @@ $linkLogin = $router->createUrl('Views/User/Templates/login');
                     </div>
                     <div class="col">
                         <ul class="top-bar__menu">
-                            <li><a href="<?php echo $linkLogin; ?>">Login</a></li>
+                            <li><a href="<?php echo $router->createUrl('Views/User/Templates/HomePage/homePage'); ?>">Home</a></li>
+                            <li><a href="">More</a></li>
+                            <li><a href="">About me</a></li>
+                            <li><a href="">Contact us</a></li>
+                            <li><a href="">Hmm</a></li>
+                            <li><a href="<?php echo $router->createUrl('Views/User/Templates/Signup/signup'); ?>">Sign up</a> / <a href="<?php echo $linkLogin; ?>">Login</a></li>
                         </ul>
                     </div>
                 </div>
