@@ -6,12 +6,10 @@ class Models_user_userIdentify
 
     protected $loginUsername;
     protected $loginPassword;
-    protected $loginEmail;
 
-    public function __construct($loginUsername = "", $loginEmail = "", $loginPassword = "")
+    public function __construct($loginUsername = "", $loginPassword = "")
     {
         $this->loginUsername = $loginUsername;
-        $this->loginEmail = $loginEmail;
         $this->loginPassword = $loginPassword;
     }
 
@@ -19,15 +17,16 @@ class Models_user_userIdentify
     {
         $db = new Models_DBConnection();
 
-
-
+        // echo $this->loginUsername;
+        // echo $this->loginPassword;
+        // die();
         $query = $db->buildQueryParams([
-            "where" => "taikhoan = :taikhoan AND matkhau = :matkhau",
+            "where" => " (taikhoan = :taikhoan AND matkhau = :matkhau) OR (taikhoan = :email AND matkhau = :matkhau)",
             "params" =>
             [
                 ":taikhoan" => trim($this->loginUsername),
-                // ":email" => $this->loginEmail,
-                ":matkhau" => $this->loginPassword,
+                ":email" => trim($this->loginUsername),
+                ":matkhau" => md5($this->loginPassword),
             ],
         ])->selectOne();
 

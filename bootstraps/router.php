@@ -87,9 +87,19 @@ class bootstraps_router
         $this->redirect('login');
     }
 
+    public function registerPage()
+    {
+        $this->redirect('Views/User/Templates/Signup/Signup');
+    }
+
     public function pageError($des)
     {
         echo $des;
         die();
+    }
+
+    public function controllerUserLink($params = [])
+    {
+        return $this->createUrl('Controllers/User/controllerUser', $params);
     }
 }

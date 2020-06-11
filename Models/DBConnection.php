@@ -106,7 +106,10 @@ class Models_DBConnection
     public function Insert()
     {
         $sql = "INSERT INTO " . $this->tableName . " " . $this->queryParams['fields'];
-
+        // echo $sql;
+        // echo "<pre>";
+        // var_dump($this->queryParams['value']);
+        // die();
         $result = $this->query($sql, $this->queryParams['value']);
 
         if ($result) {

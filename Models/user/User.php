@@ -11,6 +11,8 @@ class Models_user_User extends Models_DBConnection
     protected $ngaysinh;
     protected $quequan;
 
+
+
     public function getValue($taikhoan, $email, $matkhau, $hoten, $ngaysinh, $quequan)
     {
         $this->taikhoan = $taikhoan;
@@ -22,18 +24,33 @@ class Models_user_User extends Models_DBConnection
 
         return $this;
     }
+
+    public function checkExistUser($regisUsername)
+    {
+        $result = $this->buildQueryParams([
+            "where" => "taikhoan = :tk",
+            "params" => [
+                ":tk" => $regisUsername,
+            ]
+        ])->selectOne();
+
+        var_dump($result);
+
+        if ($result) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public function insertUser()
     {
         $result = $this->buildQueryParams([
-            "fields" => "(taikhoan,email,hoten,ngaysinh,quequan,matkhau) ? values (?,?,?,?,?,?)",
+            "fields" => "(taikhoan,email,hoten,ngaysinh,quequan,matkhau) values (?,?,?,?,?,?)",
             "value" => [$this->taikhoan, $this->email, $this->hoten, $this->ngaysinh, $this->quequan, $this->encryptPassword($this->matkhau)],
         ])->insert();
 
-        if ($result) {
-            $_SESSION['insertUser'] = true;
-        } else {
-            $_SESSION['insertUser'] = false;
-        }
+
         return $result;
     }
 
@@ -44,11 +61,7 @@ class Models_user_User extends Models_DBConnection
             "params" => [":idUser" => $id]
         ]);
 
-        if ($result) {
-            $_SESSION['deleteUser'] = true;
-        } else {
-            $_SESSION['deleteUser'] = true;
-        }
+
 
         return $result;
     }
@@ -62,11 +75,7 @@ class Models_user_User extends Models_DBConnection
         ])->Update();
 
 
-        if ($result) {
-            $_SESSION['updateUser'] = true;
-        } else {
-            $_SESSION['updateUser'] = false;
-        }
+
 
         return $result;
     }

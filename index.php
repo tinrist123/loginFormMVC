@@ -4,15 +4,9 @@ require_once './bootstraps/bootstraps.php';
 session_start();
 
 
-// $a = new Models_user_User("a", "a", "a", "a", "a", "a");
+// A few problems with this line 
+// $_SESSION['loginStatus'] = false;
 
-$test = new Models_user_userIdentify("tinngo", "", "123");
 $router = new bootstraps_router(__DIR__);
 
 $router->Router();
-// $link  = $router->createUrl('Views/User/Templates/login');
-
-
-?>
-
-<a href="<?php echo $link; ?>">click</a>
