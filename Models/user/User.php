@@ -2,7 +2,7 @@
 
 class Models_user_User extends Models_DBConnection
 {
-    protected $tableName = "user";
+    protected $tableName = "userLogin";
 
     protected $taikhoan;
     protected $email;
