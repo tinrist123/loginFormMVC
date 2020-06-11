@@ -6,7 +6,7 @@ class Models_DBConnection
     protected $password = "";
     protected $database = "loginmvc";
 
-    protected $tableName = "user";
+    protected $tableName = "userlogin";
 
     private $optionPDO = array(
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
@@ -97,6 +97,8 @@ class Models_DBConnection
     {
         $this->queryParams['other'] = "limit 1";
         $data = $this->select();
+
+
 
         if ($data) {
             return $data[0];

@@ -91,6 +91,7 @@ if (isset($_GET['action'])) {
 
                     $router->homePage();
                 } else {
+
                     $_SESSION['errorLogin'] = true;
                     linkToLogin();
                 }

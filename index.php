@@ -5,7 +5,10 @@ session_start();
 
 
 // A few problems with this line 
-// $_SESSION['loginStatus'] = false;
+
+if (!isset($_SESSION['loginStatus'])) {
+    $_SESSION['loginStatus'] = false;
+}
 
 $router = new bootstraps_router(__DIR__);
 
