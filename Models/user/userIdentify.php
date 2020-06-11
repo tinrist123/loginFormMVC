@@ -20,6 +20,8 @@ class Models_user_userIdentify
         // echo $this->loginUsername;
         // echo $this->loginPassword;
         // die();
+
+
         $query = $db->buildQueryParams([
             "where" => " (taikhoan = :taikhoan AND matkhau = :matkhau) OR (taikhoan = :email AND matkhau = :matkhau)",
             "params" =>

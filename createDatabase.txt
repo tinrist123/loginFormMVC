@@ -1,0 +1,9 @@
+CREATE TABLE userLogin (
+	id int not null PRIMARY KEY IDENTITY,
+	taikhoan nvarchar(255) not null,
+	email nvarchar(255) not null,
+	hoten nvarchar(255) not null,
+	ngaysinh datetime not null,
+	quequan nvarchar(255) not null,
+	matkhau varchar not null
+)
