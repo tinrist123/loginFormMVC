@@ -4,15 +4,14 @@ class Models_DBConnection
     protected $hostname = "localhost";
     protected $username = "root";
     protected $password = "";
-    protected $database = "loginmvc";
+    protected $database = "ecommerce";
 
-    protected $tableName = "userlogin";
+    public $tableName = "";
 
     private $optionPDO = array(
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     );
-
 
     protected $queryParams = [];
 
@@ -56,7 +55,6 @@ class Models_DBConnection
     public function query($sql, $params = [])
     {
         $q = self::$connectionInstance->prepare($sql);
-
         if (is_array($params) && $params) {
             $q->execute($params);
         } else {
@@ -87,8 +85,6 @@ class Models_DBConnection
 
         $sql = "SELECT " .  $this->queryParams['select'] . " FROM $this->tableName " . $this->buildConditionalWhere($this->queryParams['where']) .
             " " . $this->queryParams['other'];
-
-
         $query = $this->query($sql, $this->queryParams['params']);
 
         return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -98,20 +94,18 @@ class Models_DBConnection
         $this->queryParams['other'] = "limit 1";
         $data = $this->select();
 
-
-
         if ($data) {
             return $data[0];
         } else
             return [];
     }
-    public function Insert()
+    public function insert()
     {
         $sql = "INSERT INTO " . $this->tableName . " " . $this->queryParams['fields'];
-        // echo $sql;
+        echo $sql;
         // echo "<pre>";
         // var_dump($this->queryParams['value']);
-        // die();
+        print_r($this->queryParams['value']);
         $result = $this->query($sql, $this->queryParams['value']);
 
         if ($result) {
@@ -125,7 +119,6 @@ class Models_DBConnection
         $sql = "UPDATE " . $this->tableName .
             " SET " .  $this->queryParams['value'] . " " . $this->buildConditionalWhere($this->queryParams['where'])
             . $this->queryParams['other'];
-
         return $this->query($sql, $this->queryParams['params']);
     }
     public function Delete()
@@ -134,5 +127,43 @@ class Models_DBConnection
         $result = $this->query($sql, $this->queryParams['params']);
 
         return $result;
+    }
+
+    public function CountPageNumber()
+    {
+        $sql = "SELECT * FROM $this->tableName ";
+        $exe = $this->buildQueryParams([
+            "select" => "*",
+            "other" => ""
+        ])->query($sql);
+
+        return ceil((int) $exe->rowCount() / 10);
+    }
+
+    public function UnionAllDetail($input)
+    {
+        $sql = "select idloaisanpham,idlaptop as id,tenlaptop as ten,giaban,url_image from 
+
+                (select idloaisanpham,idlaptop,tenlaptop ,giaban, url_image from detaillaptop
+                UNION
+                select idloaisanpham,idssd,tenssd ,giaban, url_image from detailssd
+                UNION
+                select idloaisanpham,idchuot,tenchuot ,giaban, url_image from detailchuot
+                UNION
+                select idloaisanpham,idmonitor,tenmonitor ,giaban, url_image from detailmonitor
+                UNION
+                select idloaisanpham,idhdd,tenhdd ,giaban, url_image from detailhdd) as A where tenlaptop LIKE '" . $input . "' limit 5";
+        $temp = $this->query($sql);
+        return $temp->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getProductRes($cate_id)
+    {
+        $result = $this->buildQueryParams([
+            "select" => "tenmaloaisanpham",
+            "where" => "idmaloaisanpham = :id",
+            "params" => [':id' => $cate_id]
+        ])->selectOne();
+        return $result['tenmaloaisanpham'];
     }
 }

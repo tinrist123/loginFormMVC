@@ -1,42 +1,37 @@
 <?php
 $router = new bootstraps_router();
 
-
-function registerUser($username, $email, $password, $confirmPassword, $name, $address, $birthday)
+$db = new Models_DBConnection();
+function registerUser($register)
 {
     global $router;
     if (
-        empty($username) || empty($email) || empty($password) || empty($confirmPassword)
-        || empty($name) || empty($address) || empty($birthday)
+        empty($register->email) || empty($register->password)
+        || empty($register->Ho) || empty($register->Ten)
     ) {
-        $_SESSION['errorRegis'] = "emptyField";
+        $_SESSION['error'] = "EmptyField";
+
         $router->registerPage();
-    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $_SESSION['errorRegis'] = "invalidEmail";
-        $router->registerPage();
-    } else if (!filter_var($username, FILTER_VALIDATE_REGEXP, array(
-        "options" => array("regexp" => "/[a-zA-Z0-9_\.\-]{8,}/")
-    ))) {
-        $_SESSION['errorRegis'] = "invaliUsername";
-        $router->registerPage();
-    } else if ($password !== $confirmPassword) {
-        $_SESSION['errorRegis'] = "notMatchPass";
+    } else if (!filter_var($register->email, FILTER_VALIDATE_EMAIL)) {
+        // $_SESSION['errorRegis'] = "invalidEmail";
         $router->registerPage();
     } else {
-        $register = new Models_user_User();
 
-        if ($register->checkExistUser($username) == false || $register->checkExistUser($email) == false) {
-            echo $username;
-            echo $email;
-            die();
-            $_SESSION['errorRegis'] = "existUsernameOrEmail";
-            $router->registerPage();
+        if ($register->CheckExistEmail($register->email) == false) {
+            // $_SESSION['errorRegis'] = "existUsernameOrEmail";
+            $register->InsertKH();
+            if (isset($_SESSION['attention'])) {
+                if ($_SESSION['attention'] == true) {
+                    $_SESSION['attention'] == false;
+                    $_SESSION['error'] = "";
+                    $router->redirect('Views/info_pay');
+                }
+            }
+            $_SESSION['error'] = "";
+            $router->loginPage();
         } else {
-            $register->getValue($username, $email, $password, $name, $birthday, $address)->insertUser();
-            $_SESSION['loginStatus'] = "true";
-            $_SESSION['nameOfUser'] = $name;
-            unset($_SESSION['errorRegis']);
-            $router->HomePage();
+            $_SESSION['error'] = "EmptyField";
+            $router->registerPage();
         }
     }
 }
@@ -44,60 +39,51 @@ function registerUser($username, $email, $password, $confirmPassword, $name, $ad
 function linkToLogin()
 {
     global $router;
-    $router->redirect('Views/User/Templates/Login/login');
+    $router->redirect('Views/login');
 }
 
 
 if (isset($_GET['action'])) {
 
-    if ($_GET['action'] == "register") {
+    if ($_GET['action'] == "dangki") {
         if (isset($_POST['submit'])) {
-            $username = $_POST['usrName'];
-            $email = $_POST['mail'];
-            $password = $_POST['pwd'];
-            $confirmPassword = $_POST['confirmpwd'];
-            $name = $_POST['name'];
-            $address = $_POST['address'];
-            $birthday = $_POST['birthdaytime'];
+            $email = $_POST['email'];
+            $password = $_POST['matkhau'];
+            $Fname = $_POST['firstName'];
+            $Lname = $_POST['lastName'];
 
-            registerUser($username, $email, $password, $confirmPassword, $name, $address, $birthday);
+            $register = new Models_User_taikhoan($email, $password, $Fname, $Lname);
+            registerUser($register);
+        }
+    } else if ($_GET['action'] == "dangnhap") {
+        $email = $_POST['email'];
+        $matkhau = $_POST['matkhau'];
+        if (empty($email) || empty($matkhau)) {
+            $_SESSION['error'] = "EmptyField";
+            $router->loginPage();
         } else {
-            unset($_SESSION['errorRegis']);
-            $router->registerPage();
+            $user = new Models_User_taikhoan($email, $matkhau);
+            $result = $user->loginStatus($email, $matkhau);
+
+            if ($result) {
+                $_SESSION['loginstatus'] = true;
+                $_SESSION['idUserLogedin'] = $user->getIdUser($email);
+                if (isset($_SESSION['attention'])) {
+                    if ($_SESSION['attention'] == true) {
+                        $_SESSION['attention'] == false;
+                        $router->redirect('Views/info_pay');
+                    }
+                }
+                $router->homePage();
+            } else {
+                $_SESSION['error'] = "errorData";
+                $router->loginPage();
+            }
         }
     } else if ($_GET['action'] == "logout") {
-        $_SESSION['loginStatus'] = false;
+        $_SESSION['loginstatus'] = false;
+        $_SESSION['attention'] == false;
+        $_SESSION['idUserLogedin'] = "";
         $router->homePage();
-    } else if ($_GET['action'] == "login") {
-        if (isset($_POST['submit'])) {
-            $usernameLogin = $_POST['username'];
-            $passwordLogin = $_POST['pwd'];
-
-            if (empty($usernameLogin) || empty($passwordLogin)) {
-                $_SESSION['errorLogin'] = true;
-                linkToLogin();
-            } else {
-                $userIdentify = new Models_user_userIdentify($usernameLogin, $passwordLogin);
-                $dataUser = $userIdentify->login();
-
-                if ($dataUser) {
-                    $_SESSION['errorLogin'] = false;
-                    $_SESSION['loginStatus'] = true;
-                    $_SESSION['nameOfUser'] = $userIdentify->getNameUser();
-
-                    // echo '<pre>';
-                    // var_dump($_SESSION);
-                    // die();
-
-                    $router->homePage();
-                } else {
-
-                    $_SESSION['errorLogin'] = true;
-                    linkToLogin();
-                }
-            }
-        } else {
-            linkToLogin();
-        }
     }
 }

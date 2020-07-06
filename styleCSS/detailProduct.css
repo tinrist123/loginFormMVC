@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 1170px;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.fieldContent {
+    display: flex;
+}
+
+.imgLeft img {
+    max-width: 100%;
+}
+
+.imgLeft {
+    flex-basis: 58.333%;
+    height: 480px;
+    position: relative;
+    width: 100%;
+}
+
+.imgLeft img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.descriptionRight h3 {
+    margin-bottom: 15px;
+    color: #dd0f11;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.descriptionRight p.giaban {
+    margin-bottom: 25px;
+}
+
+
+p.product-title {
+    margin-bottom: 15px;
+}
+
+.boxInfor {
+    margin-bottom: 10px;
+}
+
+.description {
+    margin-bottom: 30px;
+}
+
+.facebook {
+    margin-bottom: 15px;
+}
+
+.facebook {
+    margin-bottom: 15px;
+}
+
+.descriptionRight {
+    max-height: 480px;
+    overflow-y: auto;
+    padding-left: 40px;
+}
+
+p.giaban {
+    color: #ff0000;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p.product-title {
+    font-weight: bold;
+    color: #000;
+}
+
+.description {
+    color: #4d4d4d;
+    font-size: 14px;
+}
+
+.facebook button:first-child,
+.facebook button:nth-child(2) {
+    background: rgba(9, 30, 66);
+    color: #fff;
+    padding: 0.2em 0.5em;
+}
+
+.facebook button:nth-child(2) {
+    background: #e75a3a;
+}
+
+.boxdesProduct {
+    margin-bottom: 30px;
+}
+
+.btnProduct a {
+    display: inline-block;
+    background: #cb1a1b;
+    color: #fff;
+    padding: 8px 0 7px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    min-width: 200px;
+    text-align: center;
+    transition: background 0.4s;
+}
+
+body {
+    line-height: 1.42857143;
+}
+
+.btnProduct a:hover {
+    background: #8a0001;
+}
+
+.btnProduct a {
+    margin-right: 8px;
+}
+
+a {
+    text-decoration: none;
+    font-family: arial;
+}
+
+.fieldContent {
+    margin-bottom: 30px;
+}
+
+/* Style table */
+table {
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+td {
+    padding: 15px 10px;
+    text-align: center;
+    border: 1px solid #e2dfdd;
+}
+
+th,
+td {
+    text-align: center;
+}
+
+
+th,
+td {
+    border-bottom: 1px solid #ddd;
+}
+
+
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+
+body p {
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+tr:first-child {
+    background: #edeceb;
+    font-weight: bold;
+}
+
+.detailProduct {
+    margin-bottom: 30px;
+}
+
+.tableparameter h4,
+.tableparameter h3,
+.tableparameter h2 {
+    display: block;
+    line-height: 1.3em;
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.parameter {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    padding-top: 10px;
+}
+
+.parameter li {
+    display: table;
+    background: #fff;
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding: 5px 0;
+}
+
+.parameter li span {
+    display: table-cell;
+    width: 40%;
+    vertical-align: top;
+    padding: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.parameter li div {
+    display: table-cell;
+    width: auto;
+    vertical-align: top;
+    padding: 6px 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.parameter li i {
+    font-style: normal;
+    display: inline;
+}
+
+.btnProduct {
+    display: flex;
+}

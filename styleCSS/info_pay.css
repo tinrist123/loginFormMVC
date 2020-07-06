@@ -1,0 +1,253 @@
+* {
+	font-family: segoe ui;
+}
+
+.cart {
+	height: 100%;
+}
+
+.cart .container .row {
+	display: flex;
+	font-size: 1.8em;
+	align-items: unset;
+}
+
+.cart .row .col-auto {
+	border-right: 1px solid #b3b3b3;
+}
+
+.cart .row .total {
+	background-color: #d4d3d340;
+}
+
+.cart .cart__info {
+	width: 650px;
+	margin: 50px 20px 80px 20px;
+	padding: 10px 20px 10px 70px;
+}
+
+.cart .total__cost {
+	width: 470px;
+	margin: 60px 30px 70px 30px;
+	/* padding-right: 65px; */
+}
+
+h1.logo__text {
+	font-family: segoe ui light;
+	color: black;
+}
+
+ul.info__link {
+	display: flex;
+	margin: 10px 10px 10px 0;
+}
+
+ul.info__link li {
+	padding-right: 10px;
+}
+
+ul li a {
+	color: #509dc9;
+}
+
+.name {
+	font-family: segoe ui light;
+}
+
+h2 {
+	font-family: segoe ui light;
+	padding: 10px 10px 10px 0;
+	font-size: 22px;
+}
+
+.link_login {
+	display: flex;
+	align-items: baseline;
+	font-size: 15px;
+	margin: 10px 10px 10px 0;
+}
+
+h3 {
+	font-family: segoe ui light;
+	font-size: 15px;
+	padding-right: 5px;
+}
+
+a {}
+
+input#input__name {
+	width: 100%;
+	height: 35px;
+	border: 1px solid #d9d9d9;
+	border-radius: 6px;
+	margin-bottom: 10px;
+}
+
+input#input_email {
+	width: 61%;
+	height: 35px;
+	border: 1px solid #d9d9d9;
+	border-radius: 6px;
+	margin-bottom: 10px;
+	margin-right: 17px;
+}
+
+input#input_phoneNumber {
+	width: 35%;
+	height: 35px;
+	border: 1px solid #d9d9d9;
+	border-radius: 6px;
+	margin-bottom: 10px;
+}
+
+input#input_address {
+	width: 100%;
+	height: 35px;
+	border: 1px solid #d9d9d9;
+	border-radius: 6px;
+	margin-bottom: 10px;
+}
+
+input#input_city {
+	width: 50%;
+	height: 35px;
+	border: 1px solid #d9d9d9;
+	border-radius: 6px;
+	margin-bottom: 10px;
+	margin-right: 6px;
+}
+
+input#input_district {
+	width: 48%;
+	height: 35px;
+	border: 1px solid #d9d9d9;
+	border-radius: 6px;
+	margin-bottom: 10px;
+}
+
+.main__click {
+	margin: 20px 0px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.main__click button {
+	height: 40px;
+	background: #338dbc;
+	border: 1px solid #b1aeae;
+	border-radius: 6px;
+	padding: 0px 20px;
+}
+
+.product__discount button {
+	width: 18%;
+	height: 30px;
+	border: 1px solid #d9d9d9;
+	border-radius: 5px;
+}
+
+.product {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.product__img {
+	position: relative;
+}
+
+span.product__sl {
+	position: absolute;
+	font-size: 13px;
+	width: 20px;
+	height: 21px;
+	border-radius: 50%;
+	text-align: center;
+	background-color: rgba(153, 153, 153, 0.9);
+	color: #fff;
+}
+
+span.product__name {
+	font-size: 15px;
+}
+
+span.product__price {
+	font-size: 15px;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+}
+
+input#input__discount {
+	width: 80%;
+	height: 30px;
+	margin-right: 3px;
+	border: 1px solid #d9d9d9;
+	border-radius: 5px;
+}
+
+.total__line {
+	font-size: 15px;
+	border-bottom: 1px solid #eeeeee;
+	padding: 20px 0;
+}
+
+form.product__discount {
+	padding: 20px 0;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.total__line__subtotal {
+	display: flex;
+	padding: 10px 0;
+}
+
+p.total__line__name {
+	width: 73%;
+}
+
+span.total__line__price {
+	text-align: right;
+	width: 30%;
+}
+
+span.total__line__name {
+	width: 70%;
+}
+
+.total__line__shipping {
+	display: flex;
+	padding: 0 0 10px 0;
+}
+
+.total__line__footer {
+	padding: 20px 0;
+	display: flex;
+	font-size: 24px;
+}
+
+.product__img img {
+	width: 60px;
+}
+
+.product__img {
+	padding-right: 1em;
+	margin-bottom: 0.4em;
+}
+
+.product {
+	position: relative;
+}
+
+span.product__name {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 300px;
+}
+
+form.flie__input select {
+	width: 30%;
+}

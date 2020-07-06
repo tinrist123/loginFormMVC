@@ -1,0 +1,338 @@
+.footer-top .row .col:first-child {
+  width: 23%;
+}
+
+.footer-top .col {
+  padding: 15px 0;
+}
+
+.footer-top {
+  padding-top: 2em;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+blockquote {
+  padding: 10px 20px;
+  font-size: 17.5px;
+  line-height: 1.5;
+}
+
+blockquote p {
+  text-decoration: underline;
+  font-size: 10.5pt;
+}
+
+blockquote {
+  border-left: 5px solid #eee;
+}
+
+blockquote a {
+  color: #fc0000;
+  font-size: 10.5pt;
+  text-decoration: underline;
+}
+
+blockquote a:hover {
+  color: #337ab7;
+}
+
+.footer-top h3 {
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+p.openDetail_inweek {
+  padding: 3px 15px;
+  border: 1px solid #fff;
+  background: red;
+  border-radius: 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+p.openDetail_inweek {
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+p.openDetail_inweek span {
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+p.openDetail_inweek font {
+  font-style: italic;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.detailNews {
+  display: flex;
+}
+
+.detailNews img {
+  width: 170px;
+  height: 110px;
+}
+
+.footer-top .row {
+  align-items: start;
+}
+
+.footer-top .col:nth-child(2) {
+  padding: 0 30px;
+  padding-top: 15px;
+}
+
+.footer-top .col:nth-child(2) {
+  width: 43%;
+}
+
+.detailNews {
+  margin-bottom: 20px;
+}
+
+.detailNews img {
+  margin-right: 20px;
+  border: 3px solid #e9e9e9;
+}
+
+h3.title {
+  margin: 0;
+}
+
+p.des__detail {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #787878;
+}
+
+h3.title a {
+  color: #313131;
+}
+
+h3.title a:hover {
+  text-decoration: underline;
+}
+
+ul.listNews li {
+  margin-top: 8px;
+  font-size: 14px;
+}
+ul.listNews li a:hover {
+  text-decoration: underline;
+}
+ul.listNews li a {
+  color: #4d4d4d;
+  color: #4d4d4d;
+  background: url("./images/double-chervon-right.png") no-repeat left top 6px;
+  padding-left: 10px;
+}
+
+.banner img {
+  width: 100%;
+}
+
+i.getIconMess {
+  background-image: url("./images/a-lot-of-icon.png");
+  background-size: 66px 734px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+}
+
+i.getIconMess {
+  background-position: 0 -576px;
+}
+
+.contact-Page-facebook {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  z-index: 22;
+}
+
+.contact-Page-facebook {
+  display: flex;
+}
+
+.linearBg {
+  content: "";
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+}
+
+.linearBg {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.contact-Page-facebook {
+  padding: 8px;
+}
+
+.contact-Page-facebook a img {
+  margin-right: 4px;
+}
+
+.detailPage {
+  color: #fff;
+}
+
+.namePage a {
+  display: inline-block;
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: -5px;
+  font-weight: 500;
+}
+
+.namePage a:hover {
+  text-decoration: underline;
+}
+
+.likePage {
+  font-size: 12px;
+  line-height: 1.358;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.btnAssociating {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.btnAssociating {
+  padding: 8px;
+}
+
+.btnAssociating div {
+  display: inline-block;
+}
+
+.btnAssociating {
+  width: 100%;
+}
+
+.contactFace__top {
+  overflow: hidden;
+}
+
+.MessagingBtn {
+  float: right;
+}
+
+.likePageBtn,
+.MessagingBtn {
+  background-color: #dddfe2;
+  border-color: #bec3c9;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.likePageBtn {
+  line-height: 22px;
+  color: #4b4f56;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0 8px;
+  border-radius: 2px;
+}
+
+.likePageBtn a {
+  color: #4b4f56;
+}
+
+.MessagingBtn {
+  text-align: center;
+}
+
+.MessagingBtn {
+  text-align: center;
+}
+
+.MessagingBtn {
+  font-size: 11px;
+  line-height: 26px;
+  padding: 0 10px;
+}
+
+i.getIconFace {
+  background-image: url("./images/more-logo-facebook.png");
+  background-size: 22px 82px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+}
+
+i.getIconFace {
+  margin-right: 4px;
+  background-position: 0 -40px;
+}
+
+.format {
+  bottom: 1px;
+  position: relative;
+  vertical-align: middle;
+}
+
+.footer-bottom {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.footer-bottom .row {
+  padding: 20px 0;
+}
+
+img.logoFooter {
+  padding-right: 50px;
+}
+
+.footer-bottom p {
+  font-size: 1.6em;
+}
+
+h3.title {
+  font-size: 1.4em;
+  margin-bottom: 12px;
+}
+
+.footer-bottom .row {
+  align-items: normal;
+}
+
+.lineBlock {
+  border-top: 1px solid #828282;
+}
+
+.row.lineBlock .col:first-child {
+  width: 35%;
+}
+
+.row.lineBlock .col:nth-child(2) {
+  width: 25%;
+}
+
+.row.lineBlock .col:nth-child(3) {
+  width: 20%;
+}
+
+.row.lineBlock .col:nth-child(4) {
+  width: 18%;
+}

@@ -4,7 +4,7 @@ class bootstraps_router
 {
     const PARAM_NAME = "r";
 
-    const HOME_PAGE = "Views/User/Templates/HomePage/homePage";
+    const HOME_PAGE = "Views/homePage";
     const INDEX_PAGE = "index";
 
     public static $sourcePath;
@@ -41,7 +41,6 @@ class bootstraps_router
         }
 
         $path = self::$sourcePath . "/" . $url . ".php";
-
         if (file_exists($path)) {
             return require_once $path;
         } else {
@@ -63,13 +62,13 @@ class bootstraps_router
             // die();
         }
         // echo "<pre>";
-        // var_dump(http_build_query($params));
+        // var_dump($_SERVER);
         // die();
 
         return $_SERVER['PHP_SELF'] . '?' . http_build_query($params);
     }
 
-    public function redirect($url)
+    public function redirect($url, $params = [])
     {
 
         $u = $this->createUrl($url);
@@ -84,12 +83,12 @@ class bootstraps_router
 
     public function loginPage()
     {
-        $this->redirect('login');
+        $this->redirect('Views/login');
     }
 
     public function registerPage()
     {
-        $this->redirect('Views/User/Templates/Signup/Signup');
+        $this->redirect('Views/register');
     }
 
     public function pageError($des)
@@ -100,6 +99,17 @@ class bootstraps_router
 
     public function controllerUserLink($params = [])
     {
+
         return $this->createUrl('Controllers/User/controllerUser', $params);
+    }
+
+    public function searchBtnLink($url, $params = [])
+    {
+        if ($url) {
+            $params[self::PARAM_NAME] = $url;
+            // echo $params[self::PARAM_NAME];
+            // die();
+        }
+        return $_SERVER['HTTP_REFERER']  . '?' . http_build_query($params);
     }
 }

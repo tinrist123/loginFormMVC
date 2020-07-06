@@ -7,3 +7,5 @@ CREATE TABLE userLogin (
 	quequan nvarchar(255) not null,
 	matkhau varchar not null
 )
+
+
