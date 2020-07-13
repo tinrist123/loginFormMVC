@@ -15,7 +15,7 @@ class Models_Order extends Models_DBConnection
 
     public $tableName = "dathang";
 
-    public function __construct($idkhachhang, $diachi, $thanhpho, $huyen, $xa, $phuongthucthanhtoan, $thanhtien, $tienship, $trigia, $ngaydat)
+    public function __construct($idkhachhang = "", $diachi = "", $thanhpho = "", $huyen = "", $xa = "", $phuongthucthanhtoan = "", $thanhtien = "", $tienship = "", $trigia = "", $ngaydat = "")
     {
         $this->idkhachhang = $idkhachhang;
         $this->diachi = $diachi;
@@ -36,6 +36,17 @@ class Models_Order extends Models_DBConnection
             'value' => [$this->idkhachhang, $this->diachi, $this->thanhpho, $this->huyen, $this->xa, $this->phuongthucthanhtoan, $this->thanhtien, $this->tienship, $this->trigia, $this->ngaydat]
         ])->insert();
 
+        return $result;
+    }
+
+    public function DeleteOrder($iddathang)
+    {
+
+        $result = $this->buildQueryParams([
+            'where' => "iddathang = :id",
+            'params' => [':id' => (int)$iddathang]
+        ])->delete();
+        // echo $result;
         return $result;
     }
 }

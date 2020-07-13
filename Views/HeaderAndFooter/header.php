@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" href="./styleCSS/styleHeader.css" />
     <link rel="stylesheet" href="./styleCSS/commonstyle.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" /> -->
     <link rel="stylesheet" href="./styleCSS/style.css" />
     <title>Document</title>
 </head>
@@ -151,7 +151,7 @@
                     <div class="left-side">
                         <ul class="side-menu__list">
                             <li class="li-parent">
-                                <a href="<?php echo $router->createUrl('Controllers/index', ['controller' => 'cateProduct', 'method' => 'cateProduct', 'category_id' => '2']); ?>" class="beforeImple">
+                                <a href="<?php echo $router->createUrl('Controllers/index', ['controller' => 'CateProduct', 'method' => 'CateProduct', 'category_id' => '2']); ?>" class="beforeImple">
                                     <span class="imgLogo">
                                         <img src="./commonImages/linhkienMT.png" alt="" />
                                     </span>

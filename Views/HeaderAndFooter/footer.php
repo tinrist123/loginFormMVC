@@ -129,7 +129,7 @@
   </div>
 </footer>
 </body>
-<script src="./ExecuteJS//AjaxNextPage.js"></script>
+<script src="./ExecuteJS/AjaxNextPage.js"></script>
 <script src="./ExecuteJS//ajaxShoppingCart.js"></script>
 <script src="./ExecuteJS//ajaxSearch.js"></script>
 <!-- <script src="./ExecuteJS//clearUrl.js"></script> -->

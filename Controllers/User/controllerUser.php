@@ -22,7 +22,7 @@ function registerUser($register)
             $register->InsertKH();
             if (isset($_SESSION['attention'])) {
                 if ($_SESSION['attention'] == true) {
-                    $_SESSION['attention'] == false;
+                    $_SESSION['attention'] = false;
                     $_SESSION['error'] = "";
                     $router->redirect('Views/info_pay');
                 }
@@ -56,6 +56,7 @@ if (isset($_GET['action'])) {
             registerUser($register);
         }
     } else if ($_GET['action'] == "dangnhap") {
+
         $email = $_POST['email'];
         $matkhau = $_POST['matkhau'];
         if (empty($email) || empty($matkhau)) {
@@ -69,12 +70,15 @@ if (isset($_GET['action'])) {
                 $_SESSION['loginstatus'] = true;
                 $_SESSION['idUserLogedin'] = $user->getIdUser($email);
                 if (isset($_SESSION['attention'])) {
+
                     if ($_SESSION['attention'] == true) {
+
                         $_SESSION['attention'] == false;
                         $router->redirect('Views/info_pay');
                     }
+                } else {
+                    $router->homePage();
                 }
-                $router->homePage();
             } else {
                 $_SESSION['error'] = "errorData";
                 $router->loginPage();
@@ -84,6 +88,7 @@ if (isset($_GET['action'])) {
         $_SESSION['loginstatus'] = false;
         $_SESSION['attention'] == false;
         $_SESSION['idUserLogedin'] = "";
+        $_SESSION['error'] = "";
         $router->homePage();
     }
 }

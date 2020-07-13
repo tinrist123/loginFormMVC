@@ -17,9 +17,9 @@ $router = new bootstraps_router();
         <?php
         if (isset($_SESSION['error'])) {
             if ($_SESSION['error'] == "EmptyField") {
-                $data = "Điền Đầy Đủ Bạn ê!! =))";
+                $data = "Hãy Điền Đầy Đủ Thông TIn";
             } else if ($_SESSION['error'] == "errorData") {
-                $data = "Điền Sai rồi bạn ê";
+                $data = "Sai Mật Khẩu hoặc email";
             }
         }
         ?>

@@ -102,12 +102,9 @@ class Models_DBConnection
     public function insert()
     {
         $sql = "INSERT INTO " . $this->tableName . " " . $this->queryParams['fields'];
-        echo $sql;
-        // echo "<pre>";
-        // var_dump($this->queryParams['value']);
-        print_r($this->queryParams['value']);
         $result = $this->query($sql, $this->queryParams['value']);
-
+        var_dump($this->queryParams['value']);
+        die();
         if ($result) {
             return self::$connectionInstance->lastInsertId();
         } else {
@@ -119,14 +116,16 @@ class Models_DBConnection
         $sql = "UPDATE " . $this->tableName .
             " SET " .  $this->queryParams['value'] . " " . $this->buildConditionalWhere($this->queryParams['where'])
             . $this->queryParams['other'];
-        return $this->query($sql, $this->queryParams['params']);
+
+        return $this->query($sql, $this->queryParams['params'])->rowCount();
     }
     public function Delete()
     {
         $sql = "DELETE FROM " . $this->tableName . " " . $this->buildConditionalWhere($this->queryParams['where']);
+
         $result = $this->query($sql, $this->queryParams['params']);
 
-        return $result;
+        return $result->rowCount();
     }
 
     public function CountPageNumber()
@@ -159,6 +158,7 @@ class Models_DBConnection
 
     public function getProductRes($cate_id)
     {
+        $this->tableName = "loaisanpham";
         $result = $this->buildQueryParams([
             "select" => "tenmaloaisanpham",
             "where" => "idmaloaisanpham = :id",

@@ -14,6 +14,7 @@ $router = new bootstraps_router();
     <div class="container">
         <div class="fieldContent">
             <?php
+            $classView = str_replace('View', '', $classView);
             $detailProduct = new $classView();
             $Product = $detailProduct->getDataToViewLaptop($idClicked);
             ?>
@@ -48,8 +49,8 @@ $router = new bootstraps_router();
                             <i class="fas fa-shopping-cart"></i>
                             <span>Mua Hàng</span>
                         </a>
-                        <input class="js-getCate" type="hidden" name="category" value=<?php echo $laptop['idloaisanpham']; ?>>
-                        <input class="js-getId" type="hidden" name="product_id" value=<?php echo $laptop['idchuot']; ?>>
+                        <input class="js-getCate" type="hidden" name="category" value=<?php echo $Product['idloaisanpham']; ?>>
+                        <input class="js-getId" type="hidden" name="product_id" value=<?php echo $Product['idchuot']; ?>>
                     </div>
                 </div>
             </div>

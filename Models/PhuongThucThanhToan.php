@@ -15,6 +15,7 @@ class Models_PhuongThucThanhToan extends Models_DBConnection
                 'params' => ['id' => $id]
             ]
         )->selectOne();
+
         return $data;
     }
 
@@ -25,6 +26,7 @@ class Models_PhuongThucThanhToan extends Models_DBConnection
                 'select' => "idthanhtoan,tenloaithanhtoan"
             ]
         )->select();
+
         return $data;
     }
 }

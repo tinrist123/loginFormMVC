@@ -16,7 +16,7 @@ $router = new bootstraps_router();
     <?php
     if (isset($_SESSION['errorCart'])) {
         if ($_SESSION['errorCart'] == "EmptyItem") {
-            $data = "Null Item";
+            $data = "Hãy chọn sản phẩm vào giỏ hàng trước";
         } else if ($_SESSION['errorCart'] == "") {
             $data = "";
         }

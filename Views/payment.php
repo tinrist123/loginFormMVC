@@ -15,12 +15,12 @@ $router = new bootstraps_router();
 ?>
 <section class="payment">
     <div class="container">
-        <div class="title">
+        <div class="title" style="text-align: center; color: red;">
             <h2>
                 <?php
                 if (isset($_SESSION['error'])) {
                     if ($_SESSION['error'] == "empty") {
-                        echo "Nhập Đầy đủ zô bạn ê!!";
+                        echo "Vui lòng tick vào ô thanh toán";
                     }
                 }
                 ?>
@@ -49,7 +49,8 @@ $router = new bootstraps_router();
                         <?php
                         $paymentName = new Models_PhuongThucThanhToan();
                         $listNamePayment = $paymentName->getNameThanhToan();
-                        $listNamePhuongThuc = $data;
+
+                        $data = $listNamePayment;
                         ?>
                         <div class="main">
                             <form action="<?php echo $router->createUrl('Controllers/index', ['controller' => 'DatHang', 'method' => 'InsertDonHang']); ?>" class="main_payment" method="POST">
@@ -61,8 +62,10 @@ $router = new bootstraps_router();
                                 </div>
                                 <div class="main__payment__method">
                                     <h3>Phương thức thanh toán</h3>
+
                                     <div class="content__box">
                                         <?php foreach ($data as $value) : ?>
+
                                             <label for="payment" class="payment__COD">
                                                 <input type="radio" name="shipping" id="payment__COD" value="<?php echo $value['idthanhtoan']; ?>"><?php echo $value['tenloaithanhtoan']; ?><br>
                                             </label>
@@ -139,6 +142,8 @@ $router = new bootstraps_router();
 
 <script src="./ExecuteJS/slide.js"></script>
 <script src="./ExecuteJS/dropRight.js"></script>
+<script src="./ExecuteJS/selectedTrue.js"></script>
+
 
 
 <?php

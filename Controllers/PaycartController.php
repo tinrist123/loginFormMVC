@@ -1,6 +1,6 @@
 <?php
 
-class Controllers_PayCartController extends Controllers_baseController
+class Controllers_PaycartController extends Controllers_baseController
 {
     public function ViewPayCart()
     {

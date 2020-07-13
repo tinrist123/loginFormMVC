@@ -4,7 +4,7 @@ class bootstraps_router
 {
     const PARAM_NAME = "r";
 
-    const HOME_PAGE = "Views/homePage";
+    const HOME_PAGE = "Views/HomePage";
     const INDEX_PAGE = "index";
 
     public static $sourcePath;
@@ -50,6 +50,7 @@ class bootstraps_router
 
     public function pageNotFound()
     {
+
         echo "404 Page Not Found";
         die();
     }

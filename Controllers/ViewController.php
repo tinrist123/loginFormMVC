@@ -11,7 +11,7 @@ class Controllers_ViewController extends Controllers_baseController
             $nameView = ucfirst($_GET['action']);
             if (isset($_GET['id'])) {
                 $idClicked = $_GET['id'];
-                $classView =  "Models_" . str_replace("View", "", $nameView);
+                $classView =  "Models_" . str_replace("", "", $nameView);
                 $this->redirectView("ViewProduct/${nameView}", ['classView' => $classView, "idClicked" => $idClicked]);
             }
         } else {

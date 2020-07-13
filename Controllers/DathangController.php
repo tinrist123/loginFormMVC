@@ -7,6 +7,8 @@ class Controllers_DathangController extends Controllers_baseController
         // echo "<pre>";
         // print_r($_POST);
         // print_r($_SESSION['idUserLogedin']);
+        // die();
+
         if (isset($_POST['submit'])) {
             if (isset($_POST['shipping']))
                 $idthanhtoan = $_POST['shipping'];
@@ -18,7 +20,7 @@ class Controllers_DathangController extends Controllers_baseController
                     $_SESSION['tempInfoUser']['idthanhtoan'] = $idthanhtoan;
                     // echo "<pre>";
                     // print_r($_SESSION);
-
+                    // die();
 
                     $idtaikhoan = $_SESSION['idUserLogedin'];
                     $SDT = $_SESSION['tempInfoUser']['SDT'];
@@ -34,28 +36,33 @@ class Controllers_DathangController extends Controllers_baseController
 
                     $khachhang = new Models_KhachHang($idtaikhoan, $SDT, $diachi, $thanhpho, $huyen, $xa, $ngaytaotk);
 
+
+
                     if ($khachhang->checkUserExist($idtaikhoan)) {
+
                         $q = $khachhang->UpdateUser();
                         $idkhachhang = $khachhang->getidkhachang($idtaikhoan);
                     } else {
+
                         $idkhachhang = $khachhang->insertKhachHang();
                     }
 
                     $thanhtien = 0;
                     $listProduct = $_SESSION['cart'];
+
                     foreach ($listProduct as $cateProduct) {
                         foreach ($cateProduct as $product) {
                             $thanhtien += $product['product_price'];
                         }
                     }
-                    // var_dump($_SESSION['cart']);
-                    $trigia = $thanhtien - 390000;
+
+                    $trigia = $thanhtien - 39000;
                     $dathang = new Models_Order($idkhachhang, $diachi, $thanhpho, $huyen, $xa, $idloaithanhtoan, $thanhtien, 39000, $trigia, $ngaytaotk);
+
                     $iddathang = $dathang->InsertOrder();
 
                     foreach ($listProduct as $cateProduct) {
                         foreach ($cateProduct as $cate => $product) {
-                            // var_dump($product['product_id']);
                             $idloaisanpham = $cate;
                             $idsanphammua = $product['product_id'];
                             $tensanpham = $product['product_name'];
@@ -63,7 +70,7 @@ class Controllers_DathangController extends Controllers_baseController
                             $soluong = $product['product_quantity'];
                             // die();
                             $CTDH = new Models_CTDH($iddathang, $idloaisanpham, $idsanphammua, $tensanpham, $giasanpham, $soluong);
-                            // var_dump($CTDH);
+
                             if ($CTDH->InsertCTDH()) {
                                 $_SESSION['successOrder'] = true;
                                 unset($_SESSION['tempInfoUser']);

@@ -14,6 +14,7 @@ $router = new bootstraps_router();
     <div class="container">
         <div class="fieldContent">
             <?php
+            $classView = str_replace('View', '', $classView);
             $detailProduct = new $classView();
             $Product = $detailProduct->getDataToViewLaptop($idClicked);
             ?>

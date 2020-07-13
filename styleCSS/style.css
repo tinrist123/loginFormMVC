@@ -344,10 +344,16 @@ ul.page-number {
 }
 
 .page-number {
-    margin: 2em 0;
+    background: #435c70;
+    padding-bottom: 0.5em;
 }
 
 .success {
     text-align: center;
     font-size: 16px;
+}
+
+.listProduct.mgt20 .page-number {
+    margin-top: 2em;
+    background: #fff;
 }

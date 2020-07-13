@@ -89,7 +89,7 @@ $router = new bootstraps_router();
             <div class="listProduct__productItems">
                 <div id="js-ajaxNextPage" class="grid">
                     <?php
-                    $ssd = new Models_SSD();
+                    $ssd = new Models_Ssd();
                     $data = $ssd->buildQueryParams([
                         "select" => "idssd,tenssd,giaban,url_image,idloaisanpham",
                         "other" => "limit 10"
@@ -98,7 +98,7 @@ $router = new bootstraps_router();
                     ?>
                     <?php foreach ($data as $product) : ?>
                         <div class="col">
-                            <a href="<?php echo $router->createUrl('Controllers/index', ['action' => 'ViewSSD', 'id' => $product['idssd'], 'controller' => 'View', 'method' => 'ViewProduct']); ?>" class="relative">
+                            <a href="<?php echo $router->createUrl('Controllers/index', ['action' => 'ViewSsd', 'id' => $product['idssd'], 'controller' => 'View', 'method' => 'ViewProduct']); ?>" class="relative">
                                 <img src="./images/discount-mini.png" alt="" class="khuyenmai-icon">
                                 <img class="js-imgAjaxChange" src="<?php echo $product['url_image']; ?>" alt="" class="imgProduct">
                                 <p class="nameProduct"><span class="js-nameAjaxChange" href=""><?php echo $product['tenssd']; ?></span>
@@ -149,7 +149,7 @@ $router = new bootstraps_router();
             <div class="listProduct__productItems">
                 <div id="js-ajaxNextPage" class="grid">
                     <?php
-                    $laptop = new Models_HDD();
+                    $laptop = new Models_Hdd();
                     $dataLaptop = $laptop->buildQueryParams([
                         "select" => "idhdd,tenhdd,giaban,url_image,idloaisanpham",
                         "other" => "limit 10"
@@ -159,7 +159,7 @@ $router = new bootstraps_router();
                     <?php foreach ($dataLaptop as $product) : ?>
                         <div class="col">
 
-                            <a href=" <?php echo $router->createUrl('Controllers/index', ['action' => 'ViewHDD', 'id' => $product['idhdd'], 'method' => 'ViewProduct', 'controller' => 'View']); ?>" class="relative">
+                            <a href=" <?php echo $router->createUrl('Controllers/index', ['action' => 'ViewHdd', 'id' => $product['idhdd'], 'method' => 'ViewProduct', 'controller' => 'View']); ?>" class="relative">
                                 <img src="./images/discount-mini.png" alt="" class="khuyenmai-icon">
                                 <img class="js-imgAjaxChange" src="<?php echo $product['url_image']; ?>" alt="" class="imgProduct">
                                 <p class="nameProduct">

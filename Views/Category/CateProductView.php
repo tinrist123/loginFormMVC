@@ -21,6 +21,8 @@ $data = $db->buildQueryParams([
     "select" => "id" . $ProductName . ",ten" . $ProductName . ",giaban,url_image,idloaisanpham",
     "other" => "limit 10"
 ])->select();
+
+
 ?>
 
 <div class="listProduct mgt20">
@@ -45,10 +47,10 @@ $data = $db->buildQueryParams([
 
                 <?php foreach ($data as $product) : ?>
                     <div class="col">
-                        <a href="<?php echo $router->createUrl('Controllers/index', ['action' => 'ViewSSD', 'id' => $product['idssd'], 'controller' => 'View', 'method' => 'ViewProduct']); ?>" class="relative">
+                        <a href="<?php echo $router->createUrl('Controllers/index', ['action' => 'View' . ucfirst($ProductName), 'id' => $product['id' . $ProductName], 'controller' => 'View', 'method' => 'ViewProduct']); ?>" class="relative">
                             <img src="./images/discount-mini.png" alt="" class="khuyenmai-icon">
                             <img class="js-imgAjaxChange" src="<?php echo $product['url_image']; ?>" alt="" class="imgProduct">
-                            <p class="nameProduct"><span class="js-nameAjaxChange" href=""><?php echo $product['ten' . $ProductName]; ?></span>
+                            <p class="nameProduct"><span class="js-nameAjaxChange"><?php echo $product['ten' . $ProductName]; ?></span>
                             </p>
                             <span class="priceProduct">
                                 <p class="discountPrice js-giabanAjaxChange" style="color: red;"><?php echo $product['giaban']; ?></p>

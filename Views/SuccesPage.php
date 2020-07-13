@@ -10,10 +10,16 @@ $router = new bootstraps_router();
 </head>
 
 <!-- Insert Code Here !!!!!!!!!!!!!!!!!!! -->
-
+<?php
+if (isset($_SESSION['error'])) {
+    if ($_SESSION['error'] == "empty") {
+        $_SESSION['error'] == "";
+    }
+}
+?>
 <div class="success">
     <div class="container">
-        <span>Đặt Hàng Thành Công =)))<a href="<?php echo $router->createUrl('Views/HomePage') ?>">Back To HomePage</a></span>
+        <span>Đặt Hàng Thành Công<a href="<?php echo $router->createUrl('Views/HomePage') ?>">Back To HomePage</a></span>
     </div>
 
 </div>

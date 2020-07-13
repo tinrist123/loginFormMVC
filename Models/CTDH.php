@@ -2,7 +2,6 @@
 
 class Models_CTDH extends Models_DBConnection
 {
-    public $tableName = "chitietdathang";
 
     protected $idCTDH;
     protected $iddathang;
@@ -11,6 +10,8 @@ class Models_CTDH extends Models_DBConnection
     protected $tensanpham;
     protected $giasanpham;
     protected $soluong;
+
+    public $tableName = "chitietdathang";
 
     function __construct($iddathang, $idloaisanpham, $idsanphammua, $tensanpham, $giasanpham, $soluong)
     {
@@ -24,11 +25,12 @@ class Models_CTDH extends Models_DBConnection
 
     public function InsertCTDH()
     {
-        $this->tensanpham;
+
         $result = $this->buildQueryParams([
             'fields' => '(iddathang,idloaisanpham,idsanphammua,tensanpham,giasanpham,soluong) VALUES (?,?,?,?,?,?)',
             'value' => [$this->iddathang, $this->idloaisanpham, $this->idsanphammua, $this->tensanpham, $this->giasanpham, $this->soluong]
         ])->insert();
+
 
         return $result;
     }

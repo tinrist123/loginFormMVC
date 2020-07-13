@@ -28,10 +28,11 @@ class Models_KhachHang extends Models_DBConnection
     public function insertKhachHang()
     {
         $result = $this->buildQueryParams([
-            'fields' => '(idtaikhoan ,SDT , diachi,thanhpho,huyen,xa,ngaytaotk) VALUES (?,?,?,?,?,?,?)',
+            'fields' => "(idtaikhoan ,SDT , diachi,thanhpho,huyen,xa,ngaytaotk) VALUES (?,?,?,?,?,?,?)",
             'value' => [$this->idtaikhoan, $this->SDT, $this->diachi, $this->thanhpho, $this->huyen, $this->xa, $this->ngaytaotk]
         ])->insert();
 
+        echo $result;
         return $result;
     }
 
@@ -50,6 +51,8 @@ class Models_KhachHang extends Models_DBConnection
 
     public function checkUserExist($idtaikhoan)
     {
+
+
         $data = $this->buildQueryParams(
             [
                 'select' => 'idkhachhang,idtaikhoan',
@@ -57,6 +60,8 @@ class Models_KhachHang extends Models_DBConnection
                 'params' => [':idtaikhoan' => $idtaikhoan]
             ]
         )->selectOne();
+
+
 
         if ($data) return true;
         return false;
@@ -71,6 +76,8 @@ class Models_KhachHang extends Models_DBConnection
                 'params' => [':idtaikhoan' => $idtaikhoan]
             ]
         )->selectOne();
+
+
         if ($data) {
             return ($data['idkhachhang']);
         }

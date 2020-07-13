@@ -5,7 +5,9 @@ if (isset($_GET['route'])) {
     $page = $_GET['route'];
 
     $router = new bootstraps_router();
+
     if (isset($_GET['attention'])) {
+
         $_SESSION['attention'] = true;
     }
     $router->$page();

@@ -1,6 +1,6 @@
 <?php
 
-class Controllers_cateProductController extends Controllers_baseController
+class Controllers_CateProductController extends Controllers_baseController
 {
     public function CateProduct()
     {

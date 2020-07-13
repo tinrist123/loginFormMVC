@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat',
+        sans-serif;
+}
+
+.logoAdmin img {
+    width: 100%;
+}
+
+.login-form {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+}
+
+.login-form {
+    background-image: url('../commonImages/bgAdminLogin.jpg');
+}
+
+.login-form:before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #005bea;
+    background: -webkit-linear-gradient(bottom, #005bea, #00c6fb);
+    background: -o-linear-gradient(bottom, #005bea, #00c6fb);
+    background: -moz-linear-gradient(bottom, #005bea, #00c6fb);
+    background: linear-gradient(bottom, #005bea, #00c6fb);
+    opacity: 0.9;
+}
+
+.logoAdmin {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.wrapper {
+    width: 390px;
+    background: transparent;
+}
+
+.loginTemp form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.loginTemp .wrapper form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginTemp .input input {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.2;
+    color: #333333;
+    display: block;
+    width: 100%;
+    background: #fff;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 53px;
+}
+
+.loginTemp .input {
+    position: relative;
+    width: 100%;
+}
+
+.loginTemp .input i {
+    position: absolute;
+    top: 35%;
+    left: 8%;
+    transform: translateX(50%);
+    transition: transform 0.35s;
+    font-size: 15px;
+}
+
+.p-b-45 {
+    padding-bottom: 45px;
+}
+
+.p-t-20 {
+    padding-top: 20px;
+}
+
+p.NameAdmin {
+    font-size: 24px;
+    color: #fff;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-weight: 700;
+}
+
+.loginTemp input[type="submit"] {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #e0e0e0;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background: #333333;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    position: relative;
+    z-index: 1;
+    border: 0;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.loginTemp input[type="submit"]:hover {
+    background: -webkit-linear-gradient(left, #005bea, #00c6fb);
+}
+
+.loginTemp .input i.moveleft {
+    transform: translateX(0);
+    color: #31C7FB;
+}
+
+
+/* Register */
+.headPicture {
+    background: url('../commonImages/headpicture.jpg') center center/cover no-repeat;
+    padding-top: 210px;
+}
+
+.enclapse {
+    max-width: 680px;
+}
+
+.card {
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.register-form h2.title {
+    font-weight: 400;
+    margin-bottom: 37px;
+}
+
+.register-form {
+    padding: 0 90px;
+    padding-top: 55px;
+    padding-bottom: 65px;
+}
+
+.input-group input,
+.input-group select {
+    outline: none;
+    margin: 0;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    width: 100%;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.input-group--style {
+    padding: 9px 0;
+    color: #666;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ccc;
+}
+
+.register-form .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-2 {
+    width: calc((100% - 60px) / 2);
+}
+
+.input-group select {
+    padding: 9px 0;
+    color: #666;
+}
+
+.input-group select {
+    outline: none;
+    border: 0;
+    background: #fff;
+}
+
+.card {
+    width: 680px;
+}
+
+img.thumbnail {
+    width: 200px;
+    margin-left: 125px;
+}
+
+.loginTemp form.formChange {
+    display: block;
+}
+
+/* ENd REGISTER */

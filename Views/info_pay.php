@@ -11,10 +11,28 @@ $router = new bootstraps_router();
 
 <!-- Insert Code Here !!!!!!!!!!!!!!!!!!! -->
 
+<?php
+if (isset($_SESSION['requiredLogedin'])) {
+	if ($_SESSION['requiredLogedin'] == true) {
+		$showingError = "Bạn Phải Đăng Nhập trước hoặc Đăng Ký";
+		$_SESSION['requiredLogedin'] = false;
+	}
+}
+?>
+
 <section class="cart">
 	<div class="container">
 		<div class="row">
+
 			<div class="col-auto">
+				<div class="titleErr" style="text-align: center; color:red;">
+					<h2>
+						<?php if (isset($showingError)) {
+							echo $showingError;
+						}
+						?>
+					</h2>
+				</div>
 				<div class="cart__info">
 					<div class="main__header">
 						<a href="https://www.h2gaming.vn/" class="logo" target="_self">
@@ -41,7 +59,7 @@ $router = new bootstraps_router();
 							if (isset($logedin)) {
 								if ($logedin == 0) {
 									echo "<h3>Bạn đã đăng nhập chưa?</h3>
-							<a href=' {$router->createUrl('Controllers/User/routeUser', ['route' => 'loginPage', 'attention' => '1'])}'>Đăng nhập</a><span>&nbsp Hoặc <a href='{$router->createUrl('Controllers/User/routeUser', ['route' => 'registerPage', 'attention' => '1'])}'> Đăng Ký</a></span>";
+							<a href=' {$router->createUrl('Controllers/User/routeUser', ['route' => 'loginPage', 'attention' => 'true'])}'>Đăng nhập</a><span>&nbsp Hoặc <a href='{$router->createUrl('Controllers/User/routeUser', ['route' => 'registerPage', 'attention' => 'true'])}'> Đăng Ký</a></span>";
 								} else {
 									echo '<h3>Hello Lazy Man</h3>';
 								}

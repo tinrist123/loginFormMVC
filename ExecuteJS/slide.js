@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let posSlideActive = 0;
     for (
       posSlideActive = 0;
-      (slideActive = slideActive.previousElementSibling); posSlideActive++
+      (slideActive = slideActive.previousElementSibling);
+      posSlideActive++
     );
     // console.log(posSlideActive);
     posSlideActive++;
