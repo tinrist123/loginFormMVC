@@ -24,7 +24,7 @@ require_once './Views/AdminView/asset/header.php';
             <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['View' => 'DonHang', 'controller' => 'Donhang', 'method' => 'ShowDonHang']); ?>"><i class="fas fa-gem"></i>Đơn Hàng</a>
           </li>
           <li>
-            <a href=""><i class="fas fa-users"></i>Tài Khoản Khách Hàng</a>
+            <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['View' => 'Account', 'controller' => 'Account', 'method' => 'ViewAccount']); ?>"><i class="fas fa-users"></i>Tài Khoản Khách Hàng</a>
           </li>
         </ul>
       </div>
@@ -35,7 +35,7 @@ require_once './Views/AdminView/asset/header.php';
 <main>
   <div class="main-content">
     <nav class="nav-bar-admin">
-      <h2 class="title">Xin Chào <?php echo $adminInfor['Ten']; ?> <span style="color:red;">Đẹp Trai!</span></h2>
+      <h2 class="title">Xin Chào <?php echo $adminInfor['Ten']; ?> !!</h2>
       <div class="nav-bar-admin__icon ">
         <a href=""><i class="fab fa-angellist"></i></a></li>
       </div>

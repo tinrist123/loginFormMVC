@@ -45,8 +45,7 @@ class Models_User_taikhoan extends Models_DBConnection
         $result = $this->buildQueryParams([
             "fields" => "(email,password,Ho,Ten) VALUES (?,?,?,?)",
             "value" => [$this->email, $this->password, $this->Ho, $this->Ten]
-        ])->Insert();
-
+        ])->insert();
         return $result;
     }
     public function InsertAdmin()
@@ -54,7 +53,7 @@ class Models_User_taikhoan extends Models_DBConnection
         $result = $this->buildQueryParams([
             "fields" => "(email,password,Ho,Ten,ngaysinh,quequan,CMND,username,isadmin) VALUES (?,?,?,?,?,?,?,?)",
             "value" => [$this->email, $this->password, $this->Ho, $this->Ten, $this->ngaysinh, $this->quequan, $this->CMND, $this->username, 1]
-        ])->Insert();
+        ])->insert();
 
         return $result;
     }
@@ -148,5 +147,15 @@ class Models_User_taikhoan extends Models_DBConnection
         if ($data)
             return $data;
         return false;
+    }
+
+    public function DeleteTaiKhoan($idtaikhoan)
+    {
+        $result = $this->buildQueryParams([
+            'where' => 'idkhachhang = :id',
+            'params' => [':id' => $idtaikhoan]
+        ])->delete();
+
+        return $result;
     }
 }

@@ -254,4 +254,16 @@ img.thumbnail {
     display: block;
 }
 
+.card.width1000 {
+    width: 1000px;
+}
+
+.register-form.padding {
+    padding: 0px 1em;
+}
+
+.enclapse.offmaxwidth {
+    max-width: none;
+}
+
 /* ENd REGISTER */

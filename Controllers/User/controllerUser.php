@@ -13,24 +13,18 @@ function registerUser($register)
 
         $router->registerPage();
     } else if (!filter_var($register->email, FILTER_VALIDATE_EMAIL)) {
-        // $_SESSION['errorRegis'] = "invalidEmail";
+        $_SESSION['error'] = "invalidEmail";
         $router->registerPage();
     } else {
-
         if ($register->CheckExistEmail($register->email) == false) {
-            // $_SESSION['errorRegis'] = "existUsernameOrEmail";
-            $register->InsertKH();
-            if (isset($_SESSION['attention'])) {
-                if ($_SESSION['attention'] == true) {
-                    $_SESSION['attention'] = false;
-                    $_SESSION['error'] = "";
-                    $router->redirect('Views/info_pay');
-                }
+            $result = $register->InsertKH();
+            if ($result) {
+                $_SESSION['regissucced'] = true;
+                $_SESSION['error'] = "";
+                linkToLogin();
             }
-            $_SESSION['error'] = "";
-            $router->loginPage();
         } else {
-            $_SESSION['error'] = "EmptyField";
+            $_SESSION['error'] = "existUsernameOrEmail";
             $router->registerPage();
         }
     }
@@ -74,9 +68,11 @@ if (isset($_GET['action'])) {
                     if ($_SESSION['attention'] == true) {
 
                         $_SESSION['attention'] == false;
+                        $_SESSION['errorLogedin'] = false;
                         $router->redirect('Views/info_pay');
                     }
                 } else {
+                    $_SESSION['errorLogedin'] = false;
                     $router->homePage();
                 }
             } else {
@@ -85,10 +81,12 @@ if (isset($_GET['action'])) {
             }
         }
     } else if ($_GET['action'] == "logout") {
+        session_destroy();
         $_SESSION['loginstatus'] = false;
         $_SESSION['attention'] == false;
         $_SESSION['idUserLogedin'] = "";
         $_SESSION['error'] = "";
+
         $router->homePage();
     }
 }

@@ -32,7 +32,7 @@ CREATE TABLE chitietdathang
 	giasanpham varchar(100),
     soluong int 
 );
-ALTER TABLE `chitietdathang` ADD `tinhtrang` INT NOT NULL AFTER `soluong`;
+ALTER TABLE `chitietdathang` ADD `tinhtrang` BIT NOT NULL AFTER `soluong`;
 
 CREATE TABLE detailchuot(
 	idchuot int PRIMARY KEY AUTO_INCREMENT,
@@ -222,6 +222,8 @@ UPDATE detailssd set idloaisanpham = 2;
 UPDATE detailhdd set idloaisanpham = 3;
 UPDATE detailmonitor set idloaisanpham = 4;
 UPDATE detailchuot set idloaisanpham = 5;
+
+
 
 // Loi do utf8 blah blah insert k dc
 SET @@global.sql_mode= 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';

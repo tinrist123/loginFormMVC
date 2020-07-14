@@ -22,6 +22,19 @@
     width: 100%;
 }
 
+.contentOrder {
+    display: table-cell;
+    width: 16.66%;
+    border: 1px solid;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.about__sl.swidthmore {
+    width: 30%;
+}
+
 .col-auto .content__img,
 .col-auto .content__name,
 .col-auto .content__sl,

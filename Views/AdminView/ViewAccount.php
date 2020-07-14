@@ -19,13 +19,13 @@ require_once './Views/AdminView/asset/header.php';
                     <li>
                         <a href="<?php echo $router->createUrl('Controllers/index', ['View' => 'profileAdmin', 'controller' => 'Profile', 'method' => 'ViewProfileAdmin']); ?>"><i class="far fa-user"></i>Profile</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['View' => 'Product', 'category' => '1', 'controller' => 'AdminView']); ?>"><i class="fas fa-city"></i>Sản Phẩm</a>
                     </li>
                     <li>
                         <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['View' => 'DonHang', 'controller' => 'Donhang', 'method' => 'ShowDonHang']); ?>"><i class="fas fa-gem"></i>Đơn Hàng</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['View' => 'Account', 'controller' => 'Account', 'method' => 'ViewAccount']); ?>"><i class="fas fa-users"></i>Tài Khoản Khách Hàng</a>
                     </li>
                 </ul>
@@ -37,21 +37,6 @@ require_once './Views/AdminView/asset/header.php';
     <div class="main-content">
         <nav class="nav-bar-admin">
             <h2 class="title">Product</h2>
-            <div class="nav-bar-admin__icon ">
-                <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['View' => 'Product', 'category' => '1', 'controller' => 'AdminView']); ?>"><i class="fas fa-laptop"></i>Laptop</a></li>
-            </div>
-            <div class="nav-bar-admin__icon mglr ml">
-                <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['View' => 'Product', 'category' => '2', 'controller' => 'AdminView']); ?>"><i class="fas fa-save"></i>SSD</a>
-            </div>
-            <div class="nav-bar-admin__icon mglr">
-                <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['View' => 'Product', 'category' => '3', 'controller' => 'AdminView']); ?>"><i class="fas fa-save"></i>HDD</a>
-            </div>
-            <div class="nav-bar-admin__icon mglr">
-                <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['View' => 'Product', 'category' => '4', 'controller' => 'AdminView']); ?>"><i class="fas fa-save"></i>Màn Hình</a>
-            </div>
-            <div class="nav-bar-admin__icon mglr">
-                <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['View' => 'Product', 'category' => '5', 'controller' => 'AdminView']); ?>"><i class="fas fa-mouse"></i>Chuột</a>
-            </div>
             <div class="nav-bar-admin__logo">
                 <a><img src="./commonImages/logoAdmin.jpg" alt=""><i class="fas fa-angle-down"></i></a>
             </div>
@@ -73,32 +58,40 @@ require_once './Views/AdminView/asset/header.php';
                                     <thead>
                                         <tr>
                                             <th scope="col">&nbsp;</th>
-                                            <th scope="col">Hình Ảnh</th>
-                                            <th scope="col">Tên Sản Phẩm</th>
-                                            <th scope="col">Giá Bán</th>
-                                            <th scope="col">Số Lượng</th>
+                                            <th scope="col">Tên Khách Hàng</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Ngày Sinh</th>
+                                            <th scope="col">CMND</th>
+                                            <th scope="col">Quê Quán</th>
+                                            <th scope="col">Số Điện Thoại</th>
+                                            <th scope="col">Địa Chỉ Giao Hàng</th>
+                                            <th scope="col">Ngày Tạo Tài Khoản</th>
                                             <th scope="col">&nbsp;</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $cate_id = $_GET['category'];
                                         ?>
                                         <?php
-                                        if (isset($listItem))
-                                            foreach ($listItem as $product) : ?>
+                                        if (isset($data))
+                                            foreach ($data as $donhang) : ?>
                                             <tr>
                                                 <th scope="row"><input class="js-getCheckBox" type="checkbox"></th>
-                                                <td class="showImg"> <img class="js-imgAjaxChange" src="<?php echo $product['url_image']; ?>" alt=""> </td>
-                                                <td class="tm-product-name js-nameAjaxChange"><?php echo $product['ten' . $productName]; ?></td>
-                                                <td class="js-giabanAjaxChange"><?php echo $product['giaban']; ?></td>
-                                                <td>55</td>
+                                                <!-- <td class="showImg"> <img class="js-imgAjaxChange" src="<?php echo $product['url_image']; ?>" alt=""> </td> -->
+                                                <td class="tm-product-name js-nameAjaxChange" style="width:10%;"><?php echo $donhang['Ho'] . " " . $donhang['Ten']; ?></td>
+                                                <td class="js-giabanAjaxChange"><?php echo $donhang['email']; ?></td>
+                                                <td><?php echo $donhang['ngaysinh']; ?></td>
+                                                <td><?php echo $donhang['cmnd']; ?></td>
+                                                <td><?php echo $donhang['quequan']; ?></td>
+                                                <td><?php echo $donhang['SDT']; ?></td>
+                                                <td><?php echo $donhang['diachi'] . ", " . $donhang['huyen'] .  ", " . $donhang['thanhpho']; ?></td>
+                                                <td><?php echo $donhang['ngaytaotk']; ?></td>
                                                 <td>
                                                     <a href="#" class="tm-product-delete-link">
                                                         <i class="far fa-trash-alt tm-product-delete-icon"></i>
                                                     </a>
-                                                    <input class="js-product_id" type="hidden" name="product_id" value="<?php echo $product['id' . $productName]; ?>">
-                                                    <input class="js-product_category" type="hidden" name="product_category" value="<?php echo $product['idloaisanpham']; ?>">
+                                                    <input class="js-donhang_idkhachhang" type="hidden" name="idkhachhang" value="<?php echo $donhang['idkhachhang']; ?>">
+                                                    <input class="js-donhang_iddathang" type="hidden" name="idtaikhoan" value="<?php echo $donhang['idtaikhoan']; ?>">
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
@@ -131,11 +124,7 @@ require_once './Views/AdminView/asset/header.php';
                 <div class="row">
                     <div class="dataView__CRUD">
                         <div class="form">
-                            <form method="POST" action="<?php echo $router->createUrl('Controllers/Admin/index', ['controller' => 'Adding', 'View' => 'AddingProduct', 'category' => $cate_id]); ?>">
-                                <input type="submit" name="Add" value="Add">
-                            </form>
                             <input id="js-eventCLickDelete" type="submit" name="Delete" value=" Delete">
-                            <input type="submit" name="Update" value=" Update">
                         </div>
                     </div>
 
@@ -145,10 +134,11 @@ require_once './Views/AdminView/asset/header.php';
 
     </div>
 </main>
-<script src="./ExecuteJS/NextPageAdmin.js"></script>
-<script src="./ExecuteJS/AdminDelete.js"></script>
-<script src="./ExecuteJS/getAllCheckedBox.js"></script>
+<script src="./ExecuteJS/getAllCheckedBoxDonHang.js"></script>
 <script src="./ExecuteJS/dropDownCarret.js"></script>
+<script src="./ExecuteJS/AdminDeleteAccount.js"></script>
+<script src="./ExecuteJS/getAllCheckedBoxAccount.js.js"></script>
+
 <?php
 require_once './Views/AdminView/asset/footer.php';
 ?>

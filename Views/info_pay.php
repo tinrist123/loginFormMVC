@@ -12,6 +12,8 @@ $router = new bootstraps_router();
 <!-- Insert Code Here !!!!!!!!!!!!!!!!!!! -->
 
 <?php
+if (isset($_SESSION['attention']))
+	unset($_SESSION['attention']);
 if (isset($_SESSION['requiredLogedin'])) {
 	if ($_SESSION['requiredLogedin'] == true) {
 		$showingError = "Bạn Phải Đăng Nhập trước hoặc Đăng Ký";
@@ -81,18 +83,18 @@ if (isset($_SESSION['requiredLogedin'])) {
 									$city = json_decode($response)->LtsItem;
 
 									?>
-									<input type="text" placeholder="Số điện thoại" size="30" id="phoneNumber" name="SDT" />
+									<input type="text" placeholder="Số điện thoại" size="30" id="phoneNumber" name="SDT" required />
 
-									<input type="text" placeholder="Địa chỉ" size="30" id="input_address" name="diachi" />
-									<select value="" id="city" name="thanhpho">
+									<input type="text" placeholder="Địa chỉ" size="30" id="input_address" name="diachi" required />
+									<select value="" id="city" name="thanhpho" required>
 										<?php foreach ($city as $data) : ?>
 											<option name="<?php echo $data->SolrID; ?>" id="<?php echo $data->ID; ?>"><?php echo $data->Title; ?></option>
 										<?php endforeach; ?>
 									</select>
-									<select value="" id="huyen" name="huyen">
+									<select value="" id="huyen" name="huyen" required>
 
 									</select>
-									<select value="" id="xa" name="xa">
+									<select value="" id="xa" name="xa" required>
 
 									</select>
 

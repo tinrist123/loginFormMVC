@@ -45,6 +45,10 @@ class Controllers_DathangController extends Controllers_baseController
                     } else {
 
                         $idkhachhang = $khachhang->insertKhachHang();
+                        if (!$idkhachhang) {
+                            echo "Err with KhachHang Insert";
+                            die();
+                        }
                     }
 
                     $thanhtien = 0;
@@ -61,20 +65,26 @@ class Controllers_DathangController extends Controllers_baseController
 
                     $iddathang = $dathang->InsertOrder();
 
-                    foreach ($listProduct as $cateProduct) {
-                        foreach ($cateProduct as $cate => $product) {
+                    if (!$iddathang) {
+                        echo "Err with Order !!";
+                        die();
+                    }
+
+                    foreach ($listProduct as $cate => $cateProduct) {
+                        foreach ($cateProduct as  $product) {
                             $idloaisanpham = $cate;
                             $idsanphammua = $product['product_id'];
                             $tensanpham = $product['product_name'];
                             $giasanpham = $product['product_price'];
                             $soluong = $product['product_quantity'];
-                            // die();
                             $CTDH = new Models_CTDH($iddathang, $idloaisanpham, $idsanphammua, $tensanpham, $giasanpham, $soluong);
-
                             if ($CTDH->InsertCTDH()) {
                                 $_SESSION['successOrder'] = true;
                                 unset($_SESSION['tempInfoUser']);
                                 $_SESSION['error'] = "";
+                            } else {
+                                echo "Errr sql";
+                                die();
                             }
                         }
                     }

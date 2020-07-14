@@ -14,7 +14,7 @@ class Models_KhachHang extends Models_DBConnection
 
     public $tableName = "khachhang";
 
-    public function __construct($idtaikhoan, $SDT, $diachi, $thanhpho, $huyen, $xa, $ngaytaotk)
+    public function __construct($idtaikhoan = "", $SDT = "", $diachi = "", $thanhpho = "", $huyen = "", $xa = "", $ngaytaotk = "")
     {
         $this->idtaikhoan = $idtaikhoan;
         $this->SDT  = $SDT;
@@ -25,6 +25,16 @@ class Models_KhachHang extends Models_DBConnection
         $this->ngaytaotk = $ngaytaotk;
     }
 
+    public function DeleteKhachHang($idkhachhang)
+    {
+        $result = $this->buildQueryParams([
+            'where' => 'idkhachhang = :id',
+            'params' => [':id' => $idkhachhang]
+        ])->delete();
+
+        return $result;
+    }
+
     public function insertKhachHang()
     {
         $result = $this->buildQueryParams([
@@ -32,7 +42,6 @@ class Models_KhachHang extends Models_DBConnection
             'value' => [$this->idtaikhoan, $this->SDT, $this->diachi, $this->thanhpho, $this->huyen, $this->xa, $this->ngaytaotk]
         ])->insert();
 
-        echo $result;
         return $result;
     }
 

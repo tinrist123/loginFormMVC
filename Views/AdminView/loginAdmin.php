@@ -24,10 +24,12 @@ if (isset($_SESSION['error'])) {
 
             <form action="<?php echo $router->createUrl('Controllers/Admin/AdminController', ['action' => 'login']);
                             ?>" method="POST">
-                <div class="logoAdmin">
-                    <img src="./commonImages/tinngo.jpg" alt="" />
+                <div class="logoAdmin" style="width: 100%; 
+    height: 120px;
+     border-radius: 0%; 
+    overflow: hidden;">
+                    <img src="./commonImages/logo.png" alt="" />
                 </div>
-                <p class="NameAdmin p-b-45 p-t-20 ">Tín Ngô</p>
                 <div class="errorLog">
                     <?php
                     if (isset($error)) {

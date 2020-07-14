@@ -10,6 +10,13 @@ $router = new bootstraps_router();
 
 
 <main>
+    <?php
+    if (isset($_SESSION['errorLogedin'])) {
+        if ($_SESSION['errorLogedin'] == true) {
+            echo "<h1 style='text-align:center;color:red;'>Bạn Phải đăng nhập mới vào đươc link này</h1>";
+        }
+    }
+    ?>
     <!-- Khuyến Mãi Category -->
     <div class="listProduct mgt20">
         <div class="container">

@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" href="./styleCSS/styleHeader.css" />
     <link rel="stylesheet" href="./styleCSS/commonstyle.css" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
     <link rel="stylesheet" href="./styleCSS/style.css" />
     <title>Document</title>
 </head>
@@ -54,6 +54,9 @@
                     </div>
                     <div class="col">
                         <div class="top-bar__links">
+                            <div class='icon-signup'>
+                                <a href="<?php echo $router->createUrl('Controllers/index', ['controller' => 'Order', 'method' => 'DonHangUser']) ?>">Xem Đơn Hàng</a>
+                            </div>
                             <?php
                             if (isset($logedin)) {
                                 if ($logedin == 0) {
@@ -74,6 +77,7 @@
 
                         </div>
                     </div>
+
                 </div>
             </div>
         </nav>

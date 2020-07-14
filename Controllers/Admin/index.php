@@ -2,6 +2,9 @@
 if (isset($_SESSION['lastEditAdmin'])) {
     unset($_SESSION['lastEditAdmin']);
 }
+if (isset($_SESSION['attention'])) {
+    unset($_SESSION['attention']);
+}
 if (isset($_SESSION['error'])) {
     if (isset($_SESSION['error'])) {
         if ($_SESSION['error'] == "emptyField") {

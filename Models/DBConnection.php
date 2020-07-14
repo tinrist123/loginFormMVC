@@ -103,8 +103,6 @@ class Models_DBConnection
     {
         $sql = "INSERT INTO " . $this->tableName . " " . $this->queryParams['fields'];
         $result = $this->query($sql, $this->queryParams['value']);
-        var_dump($this->queryParams['value']);
-        die();
         if ($result) {
             return self::$connectionInstance->lastInsertId();
         } else {

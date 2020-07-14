@@ -13,16 +13,16 @@ require_once './Views/AdminView/asset/header.php';
                         <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['controller' => 'Homeadmin', 'View' => 'HomeAdmin']); ?>"><i class="fas fa-home"></i>Trang Chủ</a>
                     </li>
                     <li class="active">
-                        <a href="#"><i class="far fa-user"></i>Profile</a>
+                        <a href="<?php echo $router->createUrl('Controllers/index', ['View' => 'profileAdmin', 'controller' => 'Profile', 'method' => 'ViewProfileAdmin']); ?>"><i class="far fa-user"></i>Profile</a>
                     </li>
                     <li>
                         <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['View' => 'Product', 'category' => '1', 'controller' => 'AdminView']); ?>"><i class="fas fa-city"></i>Sản Phẩm</a>
                     </li>
                     <li>
-                        <a href=""><i class="fas fa-gem"></i>Đơn Hàng</a>
+                        <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['View' => 'DonHang', 'controller' => 'Donhang', 'method' => 'ShowDonHang']); ?>"><i class="fas fa-gem"></i>Đơn Hàng</a>
                     </li>
                     <li>
-                        <a href=""><i class="fas fa-users"></i>Tài Khoản Khách Hàng</a>
+                        <a href="<?php echo $router->createUrl('Controllers/Admin/index', ['View' => 'Account', 'controller' => 'Account', 'method' => 'ViewAccount']); ?>"><i class="fas fa-users"></i>Tài Khoản Khách Hàng</a>
                     </li>
                 </ul>
             </div>

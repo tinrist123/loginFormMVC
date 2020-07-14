@@ -15,12 +15,17 @@ $router = new bootstraps_router();
 <main>
     <div class="login-form">
         <?php
+
         if (isset($_SESSION['error'])) {
             if ($_SESSION['error'] == "EmptyField") {
                 $data = "Hãy Điền Đầy Đủ Thông TIn";
             } else if ($_SESSION['error'] == "errorData") {
                 $data = "Sai Mật Khẩu hoặc email";
             }
+        }
+        if (isset($_SESSION['regissucced'])) {
+            if ($_SESSION['regissucced'] == true)
+                $data = "Đăng Ký Thành Công!";
         }
         ?>
         <h1 style='text-align:center; color:red'> <?php
@@ -32,8 +37,8 @@ $router = new bootstraps_router();
         <div class="container">
             <form action="<?php echo $router->createUrl('Controllers/User/controllerUser', ['action' => 'dangnhap']); ?>" method="post">
                 <h1 class="title">Đăng Nhập</h1>
-                <input type="text" name="email" placeholder="Email">
-                <input type="password" name="matkhau" placeholder="Mật Khẩu">
+                <input type="text" name="email" placeholder="Email" required>
+                <input type="password" name="matkhau" placeholder="Mật Khẩu" required>
                 <input type="submit" value="Đăng Nhập" name="submit">
             </form>
             <div class="more">

@@ -32,9 +32,10 @@ class Models_Order extends Models_DBConnection
     public function InsertOrder()
     {
         $result = $this->buildQueryParams([
-            'fields' => "(idkhachhang,diachi,thanhpho,huyen,xa,phuongthucthanhtoan,thanhtien,tienship,trigia,ngaydat) VALUES (?,?,?,?,?,?,?,?,?,?)",
-            'value' => [$this->idkhachhang, $this->diachi, $this->thanhpho, $this->huyen, $this->xa, $this->phuongthucthanhtoan, $this->thanhtien, $this->tienship, $this->trigia, $this->ngaydat]
+            'fields' => "(idkhachhang,diachi,thanhpho,huyen,xa,phuongthucthanhtoan,thanhtien,tienship,trigia,ngaydat,tinhtrang) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+            'value' => [$this->idkhachhang, $this->diachi, $this->thanhpho, $this->huyen, $this->xa, $this->phuongthucthanhtoan, $this->thanhtien, $this->tienship, $this->trigia, $this->ngaydat, 0]
         ])->insert();
+
 
         return $result;
     }
@@ -46,7 +47,6 @@ class Models_Order extends Models_DBConnection
             'where' => "iddathang = :id",
             'params' => [':id' => (int)$iddathang]
         ])->delete();
-        // echo $result;
         return $result;
     }
 }

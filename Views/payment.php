@@ -67,7 +67,7 @@ $router = new bootstraps_router();
                                         <?php foreach ($data as $value) : ?>
 
                                             <label for="payment" class="payment__COD">
-                                                <input type="radio" name="shipping" id="payment__COD" value="<?php echo $value['idthanhtoan']; ?>"><?php echo $value['tenloaithanhtoan']; ?><br>
+                                                <input type="radio" name="shipping" id="payment__COD" value="<?php echo $value['idthanhtoan']; ?>" required><?php echo $value['tenloaithanhtoan']; ?><br>
                                             </label>
                                         <?php endforeach; ?>
                                     </div>

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let idCity = city.options[city.selectedIndex].id;
 
     let hr = new XMLHttpRequest();
-    let url = `https://thongtindoanhnghiep  .co/api/city/${idCity}/district`;
+    let url = `https://thongtindoanhnghiep.co/api/city/${idCity}/district`;
 
     hr.open("GET", url, true);
 
