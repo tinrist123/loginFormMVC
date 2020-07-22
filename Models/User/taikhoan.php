@@ -1,5 +1,4 @@
 <?php
-
 class Models_User_taikhoan extends Models_DBConnection
 {
     public $tableName = "taikhoan";
@@ -48,10 +47,11 @@ class Models_User_taikhoan extends Models_DBConnection
         ])->insert();
         return $result;
     }
+
     public function InsertAdmin()
     {
         $result = $this->buildQueryParams([
-            "fields" => "(email,password,Ho,Ten,ngaysinh,quequan,CMND,username,isadmin) VALUES (?,?,?,?,?,?,?,?)",
+            "fields" => "(email,password,Ho,Ten,ngaysinh,quequan,CMND,username,isadmin) VALUES (?,?,?,?,?,?,?,?,?)",
             "value" => [$this->email, $this->password, $this->Ho, $this->Ten, $this->ngaysinh, $this->quequan, $this->CMND, $this->username, 1]
         ])->insert();
 

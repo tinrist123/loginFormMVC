@@ -55,7 +55,7 @@
                     <div class="col">
                         <div class="top-bar__links">
                             <div class='icon-signup'>
-                                <a href="<?php echo $router->createUrl('Controllers/index', ['controller' => 'Order', 'method' => 'DonHangUser']) ?>">Xem Đơn Hàng</a>
+                                <a href="<?php echo $router->createUrl('Controllers/index', ['controller' => 'Order', 'method' => 'DonHangUser']) ?>"><i class="fas fa-search"></i>Xem Đơn Hàng</a>
                             </div>
                             <?php
                             if (isset($logedin)) {

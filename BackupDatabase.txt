@@ -83,15 +83,15 @@ CREATE TABLE detaillaptop(
     dungluongram varchar(100),
     sokheram varchar(100),
     dungluonghdd varchar(100),
-    khanangluutruhdd varchar(100),
-    manhinh varchar(100),
+    khanangluutruhdd varchar(255),
+    manhinh varchar(255),
     dophangiai varchar(100),
     boxulyvga varchar(100),
     congnghevga varchar(100),
     lan varchar(100),
     wireless varchar(100),
     bluetooth varchar(100),
-    congusb varchar(100),
+    congusb varchar(255),
     hdmi varchar(100),
     khecamthenho varchar(100),
     audio varchar(100),
@@ -128,7 +128,7 @@ CREATE TABLE detailmonitor
     dophangiai varchar(100),
     thoigiandapung varchar(100),
     gocnhin varchar(100),
-    conggiaotiep varchar(100),
+    conggiaotiep mediumtext,
     xuatxu varchar(100)
 );
 
@@ -209,7 +209,6 @@ INSERT INTO `phuongthucthanhtoan`(`tenloaithanhtoan`) VALUES ('Thanh toán onlin
 INSERT INTO `phuongthucthanhtoan`(`tenloaithanhtoan`) VALUES ('Thanh toán online bằng thẻ ATM nội địa/Internet Banking');
 INSERT INTO `phuongthucthanhtoan`(`tenloaithanhtoan`) VALUES ('Thanh toán online bằng thẻ Visa/Master/JCB');
 
-ALTER TABLE `khachhang`  ADD `thanhpho` VARCHAR(100) NOT NULL  AFTER `diachi`,  ADD `huyen` VARCHAR(100) NOT NULL  AFTER `thanhpho`;
 
 INSERT INTO `loaisanpham` (`tenmaloaisanpham`) VALUES('laptop');
 INSERT INTO `loaisanpham` (`tenmaloaisanpham`) VALUES('ssd');
@@ -217,13 +216,8 @@ INSERT INTO `loaisanpham` (`tenmaloaisanpham`) VALUES('hdd');
 INSERT INTO `loaisanpham` (`tenmaloaisanpham`) VALUES('monitor');
 INSERT INTO `loaisanpham` (`tenmaloaisanpham`) VALUES('chuot');
 
-UPDATE detaillaptop set idloaisanpham = 1;
-UPDATE detailssd set idloaisanpham = 2;
-UPDATE detailhdd set idloaisanpham = 3;
-UPDATE detailmonitor set idloaisanpham = 4;
-UPDATE detailchuot set idloaisanpham = 5;
 
 
 
-// Loi do utf8 blah blah insert k dc
+
 SET @@global.sql_mode= 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';

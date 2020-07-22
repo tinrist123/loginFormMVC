@@ -28,6 +28,7 @@ class Controllers_AddingaccountController extends Controllers_baseController
 
                 if ($result) {
                     unset($_SESSION['error']);
+                    $_SESSION['idAdmin'] = $result;
                     $this->redirectView('AdminView/admin');
                 } else {
                     $_SESSION['error'] = "unknownErr";

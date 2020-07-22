@@ -102,6 +102,7 @@ class Models_DBConnection
     public function insert()
     {
         $sql = "INSERT INTO " . $this->tableName . " " . $this->queryParams['fields'];
+
         $result = $this->query($sql, $this->queryParams['value']);
         if ($result) {
             return self::$connectionInstance->lastInsertId();

@@ -5,10 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let i = 0; i < clickedRow.length; i++) {
         clickedRow[i].onclick = function () {
             let idkhachhang = document.getElementsByClassName('js-donhang_idkhachhang')[i].value;
+            let iddathang = document.getElementsByClassName('js-donhang_iddathang')[i].value;
+            console.log(iddathang);
+
             console.log(idkhachhang);
 
             let hr = new XMLHttpRequest();
-            $dataSending = "idkhachhang=" + idkhachhang;
+            $dataSending = "idkhachhang=" + idkhachhang + "&iddathang=" + iddathang;
             url = 'Phpajax/ViewCTDH.php';
             hr.open("POST", url, true)
             hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

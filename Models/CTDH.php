@@ -32,9 +32,9 @@ class Models_CTDH extends Models_DBConnection
         return $result;
     }
 
-    public function getProductWithIdUser($idUser)
+    public function getProductWithIdUser($idUser, $iddathang)
     {
-        $sql = 'SELECT idsanphammua,soluong,idloaisanpham,tensanpham,giasanpham,diachi,thanhpho,huyen,xa,ngaydat FROM chitietdathang C,dathang D WHERE C.iddathang = D.iddathang AND D.idkhachhang = ' . $idUser;
+        $sql = 'SELECT idsanphammua,soluong,idloaisanpham,tensanpham,giasanpham,diachi,thanhpho,huyen,xa,ngaydat FROM chitietdathang C,dathang D WHERE C.iddathang = D.iddathang AND D.idkhachhang = ' . $idUser . ' AND D.iddathang = ' . $iddathang;
         $data = $this->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
         return $data;

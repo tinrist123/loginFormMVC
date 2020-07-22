@@ -20,7 +20,7 @@ require_once './Views/AdminView/asset/header.php';
                             }
                             ?>
                         </h2>
-                        <h2 class="title">Đăng Kí Thành Viên</h2>
+                        <h2 class="title">Đăng Kí Quản Trị</h2>
                         <h2 class="title"><a href="<?php echo $router->createUrl('Views/AdminView/admin') ?>" style="color:#005EDA;">Về Trang Chủ</a></h2>
                         <form class="formChange" action="<?php echo $router->createURl('Controllers/index', ['controller' => 'Addingaccount', 'method' => 'AddingAcount']) ?>" method="POST" enctype="multipart/form-data">
                             <div class="row">
